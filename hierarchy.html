@@ -12,21 +12,17 @@
     />
     <script src="./js/jquery.min.js"></script>
     <script src="./js/orgchart.min.js"></script>
-    <!-- <link href="./css/main.css" rel="stylesheet" type="text/css" /> -->
     <title></title>
   </head>
 
   <body>
-    <div id="loader">Some Text There</div>
     <div id="chart-container"></div>
 
     <script>
-      jQuery("body").prepend('<div id="preloader">Loading...</div>');
       (function ($) {
         $(function () {
-          jQuery("#preloader").remove();
           //sample data from db
-          var units = [{id: 1, name: "sample", Regcli: 0, clam: 0, policy: 0, patch: 0},
+          var units = [{id: 1, name: "sample", Regcli: 100, clam: 20, policy: 60, patch: 75},
     {id: 2, parentid: 1, name: "sample", Regcli: 0, clam: 0, policy: 0, patch: 0},
     {id: 3, parentid: 2, name: "sample", Regcli: 0, clam: 0, policy: 0, patch: 0},
     {id: 4, parentid: 3, name: "sample", Regcli: 0, clam: 0, policy: 0, patch: 0},
@@ -660,8 +656,8 @@
             nodeId: "id",
           });
         });
-        $("#loader").hide();
       })(jQuery);
+      
       function color(regcli,val){
         let percentage = (val/regcli)*100;
         if (percentage >= 0 && percentage <= 30) {
